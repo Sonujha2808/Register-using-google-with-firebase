@@ -1,0 +1,381 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        button {
+            color: blueviolet;
+            background-color: #c9d6ff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        textarea, input[type="file"] {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    </style>
+    <script type="module" src="homepage.js"></script>
+</head>
+<body>
+    
+    <header>
+        <h1>My Platform</h1>
+        <nav>
+            <a href="#upload">Upload</a>
+            <a href="#stories">Stories</a>
+            <button id="logout">Logout</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="section" id="user-info">
+            <h2>Welcome to the Homepage</h2>
+            <p>First Name: <span id="loggedUserFName"></span></p>
+            <p>Last Name: <span id="loggedUserLName"></span></p>
+            <p>Email: <span id="loggedUserEmail"></span></p>
+        </div>
+
+       
+        <div class="section" id="upload">
+            <h2>Upload Your Content</h2>
+            <textarea id="story" rows="4" placeholder="Write your story here..."></textarea>
+            <input type="file" id="fileUpload" accept="image/*">
+            <button id="submitUpload">Submit</button>
+        </div>
+
+        
+        <div class="section" id="stories">
+            <h2>Recent Stories</h2>
+            <div id="storiesContainer">
+                <p>No stories to display yet. Be the first to share your story!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #d4ebf8, #1f509a); /* Palette color */
+        }
+
+        header {
+            background-color: #1f509a; /* Primary color */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a, #logout {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        nav a:hover, #logout:hover {
+            text-decoration: underline;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Make file input visible */
+        input[type="file"] {
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        label {
+            cursor: pointer;
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the container */
+            justify-content: center;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px; /* Center content */
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #1f509a; /* Heading color */
+        }
+
+        button {
+            color: white;
+            background-color: #1f509a; /* Primary button color */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #509a1f; /* Hover effect */
+            color: #fff;
+        }
+
+        textarea, input[type="file"] {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .uploaded-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center the images */
+        }
+
+        .uploaded-images img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .uploaded-images p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+    </style>
+    <script type="module" src="homepage.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Story Platform</h1>
+        <nav>
+            <a href="#stories">Stories</a>
+            <a href="#upload">Upload</a>
+            <div class="profile">
+                <label for="profilePhotoUpload"><img id="profileImage" src="https://via.placeholder.com/40" alt="Profile"></label>
+                <span id="loggedUserFName"></span> <span id="loggedUserLName"></span>
+            </div>
+            <button id="logout">Logout</button>
+        </nav>
+    </header>
+    <marquee scrollamount="15"><h3>Welcome to my webpage for uploading the Stories.    Welcome to my webpage for uploading the Stories</h3></marquee>
+
+    <div class="container">
+        <!-- Stories Section -->
+        <div class="section" id="stories">
+            <h2>Recent Stories</h2>
+            <!-- <div id="storiesContainer">
+                <p>No stories to display yet. Be the first to share your story!</p>
+            </div> -->
+            <div class="uploaded-images" id="uploadedImages">
+                <!-- Uploaded images will be displayed here -->
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="section" id="upload">
+            <h2>Upload Your Content</h2>
+            <textarea id="story" rows="4" placeholder="Write your story here..."></textarea>
+            <input type="file" id="fileUpload" accept="image/*">
+            <button id="submitUpload">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileUpload = document.getElementById('fileUpload');
+            const submitUpload = document.getElementById('submitUpload');
+            const uploadedImages = document.getElementById('uploadedImages');
+            const profileImage = document.getElementById('profileImage');
+            const profilePhotoUpload = document.getElementById('profilePhotoUpload');
+            const storyTextArea = document.getElementById('story');
+            const storiesContainer = document.getElementById('storiesContainer');
+
+            // Simulated Google Login Data
+            const googleUser = {
+                firstName: "John",
+                lastName: "Doe",
+                email: "johndoe@example.com"
+            };
+
+            // Display user first and last name in header
+            document.getElementById('loggedUserFName').textContent = googleUser.firstName;
+            document.getElementById('loggedUserLName').textContent = googleUser.lastName;
+
+            // Handle file upload for stories
+            submitUpload.addEventListener('click', () => {
+                const storyText = storyTextArea.value.trim();
+                const file = fileUpload.files[0];
+
+                // Check if the story text is provided
+                if (storyText === '') {
+                    alert('Please write your story before uploading an image.');
+                    return;
+                }
+
+                // Display the story text
+                const storyDiv = document.createElement('div');
+                const storyContent = document.createElement('p');
+                storyContent.textContent = storyText;
+                storyDiv.appendChild(storyContent);
+
+                // If there is an image, display it as well
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        uploadedImages.appendChild(img); // Show the image below the text
+                    };
+                    reader.readAsDataURL(file);
+                }
+
+                // Add the story to the container
+                storiesContainer.appendChild(storyDiv);
+                storyTextArea.value = ''; // Clear the text area
+                fileUpload.value = ''; // Reset the file input
+            });
+
+            // Handle profile photo upload
+            profilePhotoUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        profileImage.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please select a valid image file.');
+                }
+            });
+
+            // Logout button
+            document.getElementById('logout').addEventListener('click', () => {
+                alert('Logged out successfully!');
+                // Implement logout functionality here
+            });
+        });
+    </script>
+</body>
+</html>
